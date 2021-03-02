@@ -46,7 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Asteroid.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpaceBody.cs" />
+    <Compile Include="Planet.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -55,6 +60,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -68,6 +74,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\asteroid03t.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\milky-way-galaxy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\planet01t.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\planet02t.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\planet03t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\asteroid01t.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\asteroid02t.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
