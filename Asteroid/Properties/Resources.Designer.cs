@@ -93,6 +93,16 @@ namespace Asteroid.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap laser01t {
+            get {
+                object obj = ResourceManager.GetObject("laser01t", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap milky_way_galaxy {
             get {
                 object obj = ResourceManager.GetObject("milky_way_galaxy", resourceCulture);
