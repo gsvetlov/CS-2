@@ -9,8 +9,8 @@ namespace Asteroid
 {
     static class GameObjectValidator
     {
-        private static int maxSpeed = 20;
-        private static int maxSize = 100;
+        private static readonly int maxSpeed = 20;
+        private static readonly int maxSize = 100;
         public static void Validate(Point position, Point direction, Size size)
         {
             if (position.X < 0 || position.X > Game.Width || position.Y < 0 || position.Y > Game.Height)

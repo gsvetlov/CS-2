@@ -14,17 +14,18 @@ namespace Asteroid
         [STAThread]
         static void Main()
         {
-            var form = new Form();
-            form.MinimumSize = new System.Drawing.Size(800, 600);
-            form.MaximumSize = new System.Drawing.Size(800, 600);
-            form.MaximizeBox = false;
-            form.MinimizeBox = false;
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.Text = "Asteroids";
+            var form = new Form
+            {
+                MinimumSize = new System.Drawing.Size(800, 600),
+                MaximumSize = new System.Drawing.Size(800, 600),
+                MaximizeBox = false,
+                MinimizeBox = false,
+                StartPosition = FormStartPosition.CenterScreen,
+                Text = "Asteroids"
+            };
 
             Game.Init(form);
             form.Show();
-            //Game.Draw();
             Application.Run(form);
         }
     }
