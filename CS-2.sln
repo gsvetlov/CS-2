@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asteroids", "Asteroid\Asteroids.csproj", "{7297B4FD-0157-4068-9C52-668CE7589BC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeTask02", "HomeTask02\HomeTask02.csproj", "{FED4C9FD-B88A-4916-8345-AFE5A63739E8}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{7297B4FD-0157-4068-9C52-668CE7589BC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7297B4FD-0157-4068-9C52-668CE7589BC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7297B4FD-0157-4068-9C52-668CE7589BC6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FED4C9FD-B88A-4916-8345-AFE5A63739E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FED4C9FD-B88A-4916-8345-AFE5A63739E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FED4C9FD-B88A-4916-8345-AFE5A63739E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FED4C9FD-B88A-4916-8345-AFE5A63739E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
