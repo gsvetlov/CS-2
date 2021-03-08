@@ -103,6 +103,16 @@ namespace Asteroid.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap medikit {
+            get {
+                object obj = ResourceManager.GetObject("medikit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap milky_way_galaxy {
             get {
                 object obj = ResourceManager.GetObject("milky_way_galaxy", resourceCulture);
@@ -136,6 +146,16 @@ namespace Asteroid.Properties {
         internal static System.Drawing.Bitmap planet03t {
             get {
                 object obj = ResourceManager.GetObject("planet03t", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ship {
+            get {
+                object obj = ResourceManager.GetObject("ship", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -1,27 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
 
 namespace Asteroid
 {
     public abstract class SpaceBody : ICollidable<SpaceBody>
-    {        
+    {
+        protected Action<String> log;
+        protected Bitmap image;
         protected Point Pos;
         protected Point Dir;
         protected Size Size;
 
-        public SpaceBody(Point pos, Point dir, Size size)
+        public SpaceBody(Point pos, Point dir, Size size, Action<string> log)
         {
             GameObjectValidator.Validate(pos, dir, size);
             Pos = pos;
             Dir = dir;
             Size = size;
-        }        
+            this.log = log ?? throw new ArgumentNullException(nameof(log));
+            this.log($"{GetType()} created");
+        }
 
-        public bool isTerminated { get; protected set; } = false;
+        public bool IsTerminated { get; protected set; } = false;
 
-        public abstract void Draw();
+        public virtual void Draw() => Game.Buffer.Graphics.DrawImage(image, Pos.X, Pos.Y);
 
         public virtual void Update()
         {
@@ -38,15 +40,9 @@ namespace Asteroid
 
         public virtual Rectangle CollisionRange => new Rectangle(Pos, Size);
 
-        public virtual bool HasCollision(ICollidable<SpaceBody> other)
-        {
-            if (!this.Equals(other) && CollisionRange.IntersectsWith(other.CollisionRange))
-            {
-                Debug.WriteLine($"Collision at {CollisionRange.X},{CollisionRange.Y}:{CollisionRange.Width},{CollisionRange.Height} with {other.CollisionRange.X},{other.CollisionRange.X}:{other.CollisionRange.Width},{other.CollisionRange.Height}");
-                return true;
-            }
-            return false;
-        }
+        public virtual bool HasCollision(ICollidable<SpaceBody> other) =>
+            !this.Equals(other) && CollisionRange.IntersectsWith(other.CollisionRange);
+        
         public virtual void Collide(SpaceBody other)
         {
             // над столкновениями надо поработать, так как сейчас объекты "влетают" внутрь друг друга и вызывают цепочку столкновений
@@ -56,9 +52,10 @@ namespace Asteroid
         }
         protected void Die()
         {
-            isTerminated = true;
+            log($"{GetType()} has died");
+            IsTerminated = true;
             Dir = Point.Empty;
         }
-       
+
     }
 }

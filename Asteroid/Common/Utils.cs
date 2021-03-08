@@ -9,7 +9,7 @@ namespace Asteroid
 {
     static class Utils
     {
-        private static Random random = new Random();
+        private static readonly Random random = new Random();
         public static int Random(int max) => random.Next(max);
         public static int Random(int min, int max) => random.Next(min, max);
         public static Point RandomPos(int width, int height) => new Point(random.Next(width), random.Next(height));
