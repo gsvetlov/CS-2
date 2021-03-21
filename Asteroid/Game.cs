@@ -19,6 +19,8 @@ namespace Asteroid
         private static List<SpaceBody> _spaceObjs;
         private static Ship ship;
 
+        private static int InitAsteroidCount { get; set; } = 10;
+
         internal static int Score { get; set; } = 0;
         public static int Width { get; set; }
         public static int Height { get; set; }
@@ -77,13 +79,20 @@ namespace Asteroid
 
         public static void Update()
         {
+            int count = 0;
             foreach (var body in _spaceObjs)
+            {
                 body.Update();
+                if (body is Asteroid) count++;
+            }
 
             Collide();
             DropDead();
             if (ship.IsTerminated)
                 GameOver();
+
+            if (count == 0)
+                SpawnAsteroids(++InitAsteroidCount);
         }
 
 
@@ -115,36 +124,13 @@ namespace Asteroid
         {
             _spaceObjs = new List<SpaceBody>();
 
-            int asteroids = 10;
-            for (int i = 0; i < asteroids; i++)
-            {
-                var size = Utils.Random(10, 40);
-                _spaceObjs.Add(new Asteroid(
-                    Utils.RandomPos(Width - size, Height - size),
-                    Utils.RandomDir(1, 5, true),
-                    new Size(size, size),
-                    logger.Log)); ;
-            }
+            SpawnAsteroids(InitAsteroidCount);
+
             int planets = 1;
-            for (int i = 0; i < planets; i++)
-            {
-                var size = Utils.Random(60, 90);
-                _spaceObjs.Add(new Planet(
-                    Utils.RandomPos(Width - size, Height - size),
-                    Point.Empty,
-                    new Size(size, size),
-                    logger.Log));
-            }
+            SpawnPlanets(planets);
+
             int medikits = 4;
-            for (int i = 0; i < medikits; i++)
-            {
-                var size = 20;
-                _spaceObjs.Add(new Medikit(
-                    Utils.RandomPos(Width - size, Height - size),
-                    Point.Empty,
-                    new Size(size, size),
-                    logger.Log));
-            }
+            SpawnMedikits(medikits);
 
             ship = new Ship(
                 new Point(1, Height / 2),
@@ -154,6 +140,46 @@ namespace Asteroid
                 _controller);
             _spaceObjs.Add(ship);
 
+        }
+
+        private static void SpawnMedikits(int medikits)
+        {
+            for (int i = 0; i < medikits; i++)
+            {
+                var size = 20;
+                _spaceObjs.Add(new Medikit(
+                    Utils.RandomPos(Width - size, Height - size),
+                    Point.Empty,
+                    new Size(size, size),
+                    logger.Log));
+            }
+        }
+
+        private static void SpawnPlanets(int planets)
+        {
+            for (int i = 0; i < planets; i++)
+            {
+                var size = Utils.Random(60, 90);
+                _spaceObjs.Add(new Planet(
+                    Utils.RandomPos(Width - size, Height - size),
+                    Point.Empty,
+                    new Size(size, size),
+                    logger.Log));
+            }
+        }
+
+        private static void SpawnAsteroids(int count)
+        {
+
+            for (int i = 0; i < count; i++)
+            {
+                var size = Utils.Random(10, 40);
+                _spaceObjs.Add(new Asteroid(
+                    Utils.RandomPos(Width - size, Height - size),
+                    Utils.RandomDir(1, 5, true),
+                    new Size(size, size),
+                    logger.Log)); ;
+            }
         }
 
         private static void BeamStart(object sender, EventArgs e)
