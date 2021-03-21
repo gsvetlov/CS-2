@@ -25,6 +25,7 @@ namespace Asteroid
         }
         public override void Collide(SpaceBody other)
         {
+            if (other is Beam) return;
             if (other is IScoreable)
                 Game.Score++;
             Die();
