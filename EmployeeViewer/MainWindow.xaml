@@ -1,12 +1,22 @@
-﻿<Window x:Class="EmployeeViewer.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EmployeeViewer"
+        xmlns:Controls="clr-namespace:EmployeeViewer.Controls;assembly=EmployeeViewer.Controls" x:Class="EmployeeViewer.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <ListView x:Name="lvEmployees" HorizontalAlignment="Left" Margin="10,10,0,10" Width="230" SelectionMode="Single">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Employee" Width="Auto"/>
+                    <GridViewColumn Header="Department" Width="Auto"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Controls:EmployeeInfo HorizontalAlignment="Right" Margin="0,10,10,10" Width="537"/>
+
     </Grid>
 </Window>

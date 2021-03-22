@@ -94,5 +94,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EmployeeView.Data\EmployeeViewer.Data.csproj">
+      <Project>{f6e7371d-bb77-4572-b1b9-9744b5f9b168}</Project>
+      <Name>EmployeeViewer.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EmployeeViewer.Controls\EmployeeViewer.Controls.csproj">
+      <Project>{5fe0f2fe-d202-4cbc-b6e7-b3bcc9a80c04}</Project>
+      <Name>EmployeeViewer.Controls</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

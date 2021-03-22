@@ -23,6 +23,11 @@ namespace EmployeeViewer.Controls
         public EmployeeInfo()
         {
             InitializeComponent();
+        }        
+
+        private void BtnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Hi", "Welcome message", MessageBoxButton.OK, MessageBoxImage.Exclamation);
         }
     }
 }
