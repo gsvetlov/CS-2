@@ -14,5 +14,6 @@ namespace EmployeeViewer.Data
         public int Age { get; set; }
         public Gender Gender { get; set; }
         public Department Department { get; set; }
+        public String FullName => $"{FirstName} {MiddleName[0]}. {LastName}";
     }
 }
