@@ -55,5 +55,21 @@ namespace EmployeeViewer
             _ = ctrEmployeeInfo.UpdateEmployee();
             UpdateBindings();
         }
+
+        private void btnNewDepartment_Click(object sender, RoutedEventArgs e)
+        {
+            CreateDepartment newDepartmentWindow = new CreateDepartment(database);
+            newDepartmentWindow.Owner = this;
+            newDepartmentWindow.ShowDialog();
+            UpdateBindings();
+        }
+
+        private void btnNewEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            CreateEmployee newEmployeeWindow = new CreateEmployee(database);
+            newEmployeeWindow.Owner = this;
+            newEmployeeWindow.ShowDialog();
+            UpdateBindings();
+        }
     }
 }

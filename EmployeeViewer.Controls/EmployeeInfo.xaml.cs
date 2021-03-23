@@ -23,6 +23,7 @@ namespace EmployeeViewer.Controls
     {
         private Employee employee;
         private List<Department> departments;
+        public string CaptionText { get => tCaption.Text; set => tCaption.Text = value; }
         public EmployeeInfo()
         {
             InitializeComponent();
@@ -57,9 +58,10 @@ namespace EmployeeViewer.Controls
             return employee;
         }
 
-        private void BtnUpdate_Click(object sender, RoutedEventArgs e)
+        public void SetGenderEditable()
         {
-            
+            rbGenderFemale.IsEnabled = true;
+            rbGenderMale.IsEnabled = true;
         }
     }
 }

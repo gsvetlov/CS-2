@@ -8,7 +8,7 @@ using EmployeeViewer.Data;
 
 namespace EmployeeViewer
 {
-    class InMemoryDatabase
+    public class InMemoryDatabase
     {
         private static readonly Random random = new Random();
         public List<Employee> Employees { get; set; }
