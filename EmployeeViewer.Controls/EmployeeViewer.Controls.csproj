@@ -79,5 +79,11 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EmployeeView.Data\EmployeeViewer.Data.csproj">
+      <Project>{f6e7371d-bb77-4572-b1b9-9744b5f9b168}</Project>
+      <Name>EmployeeViewer.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

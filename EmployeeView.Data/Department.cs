@@ -10,5 +10,7 @@ namespace EmployeeViewer.Data
     {
         public string Name { get; set; }
         public Employee Director { get; set; }
+
+        public override string ToString() => Name;
     }
 }

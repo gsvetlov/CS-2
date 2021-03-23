@@ -13,16 +13,47 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using EmployeeViewer.Data;
+
 namespace EmployeeViewer
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    
     public partial class MainWindow : Window
     {
+        private readonly InMemoryDatabase database = new InMemoryDatabase();
         public MainWindow()
         {
             InitializeComponent();
+            UpdateBindings();
+        }
+
+        private void UpdateBindings()
+        {
+            lvEmployees.ItemsSource = null;
+            lvEmployees.ItemsSource = database.Employees;
+            ctrEmployeeInfo.SetDepartments(database.Departments);
+
+        }
+
+        private void LvEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems.Count != 0)
+            {
+                ctrEmployeeInfo.SetEmployee(e.AddedItems[0] as Employee);
+            }
+        }
+
+        
+
+        private void BtnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            if (lvEmployees.SelectedItems.Count < 1)
+                return;
+            _ = ctrEmployeeInfo.UpdateEmployee();
+            UpdateBindings();
         }
     }
 }

@@ -5,20 +5,24 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EmployeeViewer.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="400">
-    <Grid Margin="0,0,0,0">
-        <TextBox x:Name="tbFirstName" Height="23" Margin="0,128,20,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" HorizontalAlignment="Right" Width="230"/>
-        <TextBox x:Name="tbMiddleName" Height="23" Margin="0,156,20,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" HorizontalAlignment="Right" Width="230"/>
-        <TextBox x:Name="tbLastName" Height="23" Margin="0,184,20,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" HorizontalAlignment="Right" Width="230"/>
-        <ComboBox HorizontalAlignment="Right" Margin="0,242,20,0" VerticalAlignment="Top" Width="250" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,242,0,0" TextWrapping="Wrap" Text="Department" VerticalAlignment="Top" FontSize="18"/>
-        <TextBlock Margin="10,128,0,0" TextWrapping="Wrap" Text="First name" VerticalAlignment="Top" FontSize="18" HorizontalAlignment="Left"/>
-        <TextBlock Margin="10,156,0,0" TextWrapping="Wrap" Text="Middle name" VerticalAlignment="Top" FontSize="18" HorizontalAlignment="Left"/>
-        <TextBlock Margin="10,184,0,0" TextWrapping="Wrap" Text="Last name" VerticalAlignment="Top" FontSize="18" HorizontalAlignment="Left"/>
-        <TextBlock Margin="10,213,0,0" TextWrapping="Wrap" Text="Age" VerticalAlignment="Top" FontSize="18" HorizontalAlignment="Left"/>
-        <TextBox x:Name="tbAge" Height="23" Margin="0,213,20,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" HorizontalAlignment="Right" Width="230"/>
-        <Button x:Name="Update" Content="Update" HorizontalAlignment="Left" Margin="305,10,0,0" VerticalAlignment="Top" Width="75" Click="BtnUpdate_Click"/>
-
-
+             d:DesignHeight="255" d:DesignWidth="405">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="tbFirstName" Height="23" Margin="0,0,20,136" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="230"/>
+        <TextBox x:Name="tbMiddleName" Height="23" Margin="0,0,20,108" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="230"/>
+        <TextBox x:Name="tbLastName" Height="23" Margin="0,0,20,80" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="230"/>
+        <TextBox x:Name="tbAge" Height="23" Margin="0,0,20,52" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="230"/>
+        <ComboBox x:Name="cbDepartment" HorizontalAlignment="Right" Margin="0,0,20,170" Width="250" FontSize="18" Height="30" VerticalAlignment="Bottom"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,0,0,174" TextWrapping="Wrap" Text="Department" VerticalAlignment="Bottom" FontSize="18"/>
+        <TextBlock Margin="10,0,0,132" TextWrapping="Wrap" Text="First name" VerticalAlignment="Bottom" FontSize="18" HorizontalAlignment="Left"/>
+        <TextBlock Margin="10,0,0,104" TextWrapping="Wrap" Text="Middle name" VerticalAlignment="Bottom" FontSize="18" HorizontalAlignment="Left"/>
+        <TextBlock Margin="10,0,0,76" TextWrapping="Wrap" Text="Last name" VerticalAlignment="Bottom" FontSize="18" HorizontalAlignment="Left"/>
+        <TextBlock Margin="10,0,0,49" TextWrapping="Wrap" Text="Age" VerticalAlignment="Bottom" FontSize="18" HorizontalAlignment="Left"/>
+        <TextBlock Margin="10,0,0,20" TextWrapping="Wrap" VerticalAlignment="Bottom" FontSize="18" HorizontalAlignment="Left" Height="24"><Run Text="Gender"/><LineBreak/><Run/></TextBlock>
+        <RadioButton x:Name="rbGenderMale" GroupName="rbGenderGroup" Content="Male" Margin="0,0,160,22" HorizontalAlignment="Right" Width="45" Height="15" VerticalAlignment="Bottom" IsEnabled="False" />
+        <RadioButton x:Name="rbGenderFemale" GroupName="rbGenderGroup" Content="Female" HorizontalAlignment="Right" Margin="0,0,58,22" IsChecked="True" Height="15" VerticalAlignment="Bottom" IsEnabled="False"/>
+        <TextBlock Margin="10,0,20,0" TextWrapping="Wrap" Text="Employee info" FontSize="18" Height="24" VerticalAlignment="Top"/>
     </Grid>
 </UserControl>
