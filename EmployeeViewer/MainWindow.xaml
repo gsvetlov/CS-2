@@ -8,11 +8,20 @@
         mc:Ignorable="d"
         Title="Employee Viewer" Height="350" Width="800">
     <Grid>
-        <ListView x:Name="lvEmployees" HorizontalAlignment="Left" Margin="10,10,0,10" Width="317" SelectionMode="Single" SelectionChanged="LvEmployees_SelectionChanged">
+        <ListView x:Name="lvEmployees"
+                  ItemsSource="{Binding Employees}"
+                  SelectionChanged="LvEmployees_SelectionChanged"
+                  SelectedItem="{Binding SelectedEmployee}"
+                  SelectionMode="Single"
+                  HorizontalAlignment="Left" Margin="10,10,0,10" Width="320"  >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Employee" Width="200" DisplayMemberBinding="{Binding FullName}"/>
-                    <GridViewColumn Header="Department" Width="Auto" DisplayMemberBinding="{Binding Department}"/>
+                    <GridViewColumn Header="First Name" DisplayMemberBinding="{Binding FirstName}"/>
+                    <GridViewColumn Header="Middle Name" DisplayMemberBinding="{Binding MiddleName}"/>
+                    <GridViewColumn Header="Last Name" DisplayMemberBinding="{Binding LastName}"/>
+                    <GridViewColumn Header="Age" DisplayMemberBinding="{Binding Age}"/>
+                    <GridViewColumn Header="Gender" DisplayMemberBinding="{Binding Gender}"/>
+                    <GridViewColumn Header="Department" DisplayMemberBinding="{Binding Department}"/>
                 </GridView>
             </ListView.View>
         </ListView>

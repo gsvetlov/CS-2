@@ -28,7 +28,7 @@ namespace EmployeeViewer
             InitializeComponent();
             ctrEmployeeInfo.CaptionText = "New Employee";
             ctrEmployeeInfo.SetGenderEditable();
-            ctrEmployeeInfo.SetDepartments(database.Departments);
+            //ctrEmployeeInfo.SetDepartments(database.Departments);
             ctrEmployeeInfo.SetEmployee(new Employee());
         }
 

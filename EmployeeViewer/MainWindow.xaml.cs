@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,25 +25,20 @@ namespace EmployeeViewer
     public partial class MainWindow : Window
     {
         private readonly InMemoryDatabase database = new InMemoryDatabase();
+        public ObservableCollection<Employee> Employees { get; set; }
+        public Employee SelectedEmployee { get; set; }
         public MainWindow()
         {
             InitializeComponent();
-            UpdateBindings();
-        }
-
-        private void UpdateBindings()
-        {
-            lvEmployees.ItemsSource = null;
-            lvEmployees.ItemsSource = database.Employees;
-            ctrEmployeeInfo.SetDepartments(database.Departments);
-
-        }
+            this.DataContext = this;
+            Employees = database.Employees;
+        }        
 
         private void LvEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (e.AddedItems.Count != 0)
             {
-                ctrEmployeeInfo.SetEmployee(e.AddedItems[0] as Employee);
+                ctrEmployeeInfo.SetEmployee(SelectedEmployee);
             }
         }
 
@@ -53,7 +49,7 @@ namespace EmployeeViewer
             if (lvEmployees.SelectedItems.Count < 1)
                 return;
             _ = ctrEmployeeInfo.UpdateEmployee();
-            UpdateBindings();
+            //UpdateBindings();
         }
 
         private void btnNewDepartment_Click(object sender, RoutedEventArgs e)
@@ -61,7 +57,7 @@ namespace EmployeeViewer
             CreateDepartment newDepartmentWindow = new CreateDepartment(database);
             newDepartmentWindow.Owner = this;
             newDepartmentWindow.ShowDialog();
-            UpdateBindings();
+            //UpdateBindings();
         }
 
         private void btnNewEmployee_Click(object sender, RoutedEventArgs e)
@@ -69,7 +65,7 @@ namespace EmployeeViewer
             CreateEmployee newEmployeeWindow = new CreateEmployee(database);
             newEmployeeWindow.Owner = this;
             newEmployeeWindow.ShowDialog();
-            UpdateBindings();
+            //UpdateBindings();
         }
     }
 }

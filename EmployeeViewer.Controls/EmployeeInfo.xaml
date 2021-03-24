@@ -20,7 +20,7 @@
         <TextBlock Margin="10,0,0,104" TextWrapping="Wrap" Text="Middle name" VerticalAlignment="Bottom" FontSize="18" HorizontalAlignment="Left"/>
         <TextBlock Margin="10,0,0,76" TextWrapping="Wrap" Text="Last name" VerticalAlignment="Bottom" FontSize="18" HorizontalAlignment="Left"/>
         <TextBlock Margin="10,0,0,49" TextWrapping="Wrap" Text="Age" VerticalAlignment="Bottom" FontSize="18" HorizontalAlignment="Left"/>
-        <TextBlock Margin="10,0,0,20" TextWrapping="Wrap" VerticalAlignment="Bottom" FontSize="18" HorizontalAlignment="Left" Height="24"><Run Text="Gender"/><LineBreak/><Run/></TextBlock>
+        <TextBlock Margin="10,0,0,20" TextWrapping="Wrap" Text="Gender" VerticalAlignment="Bottom" FontSize="18" HorizontalAlignment="Left" Height="24"/>
         <RadioButton x:Name="rbGenderMale" GroupName="rbGenderGroup" Content="Male" Margin="0,0,160,20" HorizontalAlignment="Right" Width="65" Height="24" VerticalAlignment="Bottom" IsEnabled="False" FontSize="18" VerticalContentAlignment="Center" />
         <RadioButton x:Name="rbGenderFemale" GroupName="rbGenderGroup" Content="Female" HorizontalAlignment="Right" Margin="0,0,54,20" IsChecked="True" Height="24" VerticalAlignment="Bottom" IsEnabled="False" VerticalContentAlignment="Center" FontSize="18"/>
         <TextBlock x:Name="tCaption" Margin="10,0,20,0" TextWrapping="Wrap" Text="Employee info" FontSize="18" Height="24" VerticalAlignment="Top"/>
