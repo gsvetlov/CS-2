@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EmployeeViewer"
         mc:Ignorable="d"
-        Title="CreateDepartment" Height="200" Width="350">
+        Title="CreateDepartment" Height="200" Width="350" WindowStartupLocation="CenterOwner">
     <Grid>
         <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="30" Margin="72,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="18"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="New Department" VerticalAlignment="Top" FontSize="24"/>

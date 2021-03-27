@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:EmployeeViewer"
         xmlns:Controls="clr-namespace:EmployeeViewer.Controls;assembly=EmployeeViewer.Controls" x:Class="EmployeeViewer.CreateEmployee"
         mc:Ignorable="d"
-        Title="CreateEmployee" Height="350" Width="450">
+        Title="CreateEmployee" Height="350" Width="450" WindowStartupLocation="CenterOwner">
     <Grid>
 
         <Controls:EmployeeInfo x:Name="ctrEmployeeInfo" HorizontalAlignment="Left" Height="260" Margin="10,10,10,40" VerticalAlignment="Top" Width="415"/>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="100,275,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <Button Content="Cancel" HorizontalAlignment="Left" Margin="255,275,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="100,275,0,0" VerticalAlignment="Top" Width="75" Click="Button_Add"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="255,275,0,0" VerticalAlignment="Top" Width="75" Click="Button_Cancel"/>
 
     </Grid>
 </Window>

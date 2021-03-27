@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,13 +12,13 @@ namespace EmployeeViewer
     public class InMemoryDatabase
     {
         private static readonly Random random = new Random();
-        public List<Employee> Employees { get; set; }
-        public List<Department> Departments { get; set; }
+        public ObservableCollection<Employee> Employees { get; set; }
+        public ObservableCollection<Department> Departments { get; set; }
 
         public InMemoryDatabase()
         {
-            Departments = GenerateDepartments(10);
-            Employees = GenerateEmployees(50);
+            Departments = new ObservableCollection<Department>(GenerateDepartments(10));
+            Employees = new ObservableCollection<Employee>(GenerateEmployees(50));
         }
 
         private string GenerateString(int length, bool withCapital = false)
