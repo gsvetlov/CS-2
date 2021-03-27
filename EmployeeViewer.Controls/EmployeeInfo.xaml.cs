@@ -1,17 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+using System.Runtime.CompilerServices;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 using EmployeeViewer.Data;
 
 namespace EmployeeViewer.Controls
@@ -19,49 +13,31 @@ namespace EmployeeViewer.Controls
     /// <summary>
     /// Interaction logic for EmployeeInfo.xaml
     /// </summary>
-    public partial class EmployeeInfo : UserControl
+    public partial class EmployeeInfo : UserControl, INotifyPropertyChanged
     {
         private Employee employee;
-        private List<Department> departments;
+        public bool IsGenderEditable { get; set; } = false;
+        public List<Gender> Genders { get; set; }
+        public Employee Employee
+        {
+            get => employee;
+            set { employee = value; NotifyPropertyChanged(); }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public ObservableCollection<Department> Departments { get; set; }
         public string CaptionText { get => tCaption.Text; set => tCaption.Text = value; }
         public EmployeeInfo()
         {
             InitializeComponent();
+            this.DataContext = this;
+            Genders = new List<Gender>(Enum.GetValues(typeof(Gender)).Cast<Gender>().ToList());
         }
 
-        public void SetDepartments(List<Department> list)
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
-            departments = list;
-            cbDepartment.ItemsSource = departments;
-        }
-
-        public void SetEmployee(Employee emp)
-        {
-            employee = emp;
-            tbFirstName.Text = employee.FirstName;
-            tbLastName.Text = employee.LastName;
-            tbMiddleName.Text = employee.MiddleName;
-            tbAge.Text = employee.Age.ToString();
-            rbGenderMale.IsChecked = employee.Gender == Gender.Male;
-            rbGenderFemale.IsChecked = !rbGenderMale.IsChecked;
-            cbDepartment.SelectedItem = employee.Department;
-        }
-
-        public Employee UpdateEmployee()
-        {
-            employee.FirstName = tbFirstName.Text;
-            employee.LastName = tbLastName.Text;
-            employee.MiddleName = tbMiddleName.Text;
-            employee.Age = int.TryParse(tbAge.Text, out int age) ? age : employee.Age;
-            employee.Gender = rbGenderMale.IsChecked ?? false ? Gender.Male : Gender.Female;
-            employee.Department = (Department)cbDepartment.SelectedItem;
-            return employee;
-        }
-
-        public void SetGenderEditable()
-        {
-            rbGenderFemale.IsEnabled = true;
-            rbGenderMale.IsEnabled = true;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
+
 }

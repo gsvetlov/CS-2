@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EmployeeViewer.Data
 {
@@ -70,13 +65,17 @@ namespace EmployeeViewer.Data
                 NotifyPropertyChanged();
             }
         }
-        public string FullName => $"{FirstName} {MiddleName[0]}. {LastName}";
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public Employee Copy()
+        {
+            return this.MemberwiseClone() as Employee;
         }
     }
 }
