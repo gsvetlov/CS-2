@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 
 using EmployeeViewer.Data;
+using EmployeeViewer.DataProvider;
 
 namespace EmployeeViewer
 {
@@ -12,12 +13,13 @@ namespace EmployeeViewer
 
     public partial class MainWindow : Window
     {
-        private readonly InMemoryDatabase database = new InMemoryDatabase();
+        private readonly IDataProvider database;
         public ObservableCollection<Employee> Employees { get; set; }
         public Employee SelectedEmployee { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+            database = new SqlExpressDatabase(ConnectionProvider.GetConnectionSting()); // для генерации данных create: true
             this.DataContext = this;
             Employees = database.Employees;
             ctrEmployeeInfo.Departments = database.Departments;
@@ -32,38 +34,31 @@ namespace EmployeeViewer
             }
         }
 
-
-
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
             if (lvEmployees.SelectedItems.Count < 1) return;
-            Employees[Employees.IndexOf(SelectedEmployee)] = ctrEmployeeInfo.Employee;
+            database.Update(Employees.IndexOf(SelectedEmployee), ctrEmployeeInfo.Employee);
         }
 
         private void BtnNewDepartment_Click(object sender, RoutedEventArgs e)
         {
-            var newDepartmentDialog = new CreateDepartment(database);
-            newDepartmentDialog.ShowDialog();
+            var newDepartmentDialog = new CreateDepartment();
+
+            if (newDepartmentDialog.ShowDialog() == true)
+            {
+                database.Add(newDepartmentDialog.Department);
+                MessageBox.Show("Department added successfully");
+            }
         }
 
         private void BtnNewEmployee_Click(object sender, RoutedEventArgs e)
         {
-            var newEmployeeDialog = new CreateEmployee(database);
+            var newEmployeeDialog = new CreateEmployee(database.Departments);
             if (newEmployeeDialog.ShowDialog() == true)
-            {
-                AddEmployee(newEmployeeDialog.Employee);
-            }
-
-        }
-
-        private void AddEmployee(Employee employee)
-        {
-            if (Employees.Contains(employee))
-                MessageBox.Show("Employee exists", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            else
-            {
-                database.Employees.Add(employee);
-            }
+                if (Employees.Contains(newEmployeeDialog.Employee))
+                    MessageBox.Show("Employee exists", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                else
+                    database.Add(newEmployeeDialog.Employee);
         }
     }
 }

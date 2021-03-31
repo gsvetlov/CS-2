@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace EmployeeViewer.Data
 {
-    public class Employee : INotifyPropertyChanged
+    public class Employee : Entity, INotifyPropertyChanged
     {
         private string firstName;
         private string middleName;
