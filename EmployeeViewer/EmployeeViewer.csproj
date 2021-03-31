@@ -78,7 +78,10 @@
     <Compile Include="CreateEmployee.xaml.cs">
       <DependentUpon>CreateEmployee.xaml</DependentUpon>
     </Compile>
-    <Compile Include="InMemoryDatabase.cs" />
+    <Compile Include="DataProvider\ConnectionProvider.cs" />
+    <Compile Include="DataProvider\IDataProvider.cs" />
+    <Compile Include="DataProvider\InMemoryDatabase.cs" />
+    <Compile Include="DataProvider\SqlExpressDatabase.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

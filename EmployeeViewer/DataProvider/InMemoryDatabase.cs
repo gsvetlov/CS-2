@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 using EmployeeViewer.Data;
 
-namespace EmployeeViewer
+namespace EmployeeViewer.DataProvider
 {
-    public class InMemoryDatabase
+    public class InMemoryDatabase : IDataProvider
     {
         private static readonly Random random = new Random();
         public ObservableCollection<Employee> Employees { get; set; }
@@ -26,7 +24,7 @@ namespace EmployeeViewer
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < length; i++)
             {
-                sb.Append((char)random.Next('a', 'z'+1));
+                sb.Append((char)random.Next('a', 'z' + 1));
             }
             if (withCapital)
                 sb[0] = (char)(sb[0] - 32); // turn first char to uppercase
@@ -65,6 +63,8 @@ namespace EmployeeViewer
             return employees;
         }
 
-       
+        public void Add(Employee employee) => Employees.Add(employee);
+        public void Update(int index, Employee employee) => Employees[index] = employee;
+        public void Add(Department department) => Departments.Add(department);
     }
 }

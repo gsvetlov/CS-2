@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EmployeeViewer.Data
+﻿namespace EmployeeViewer.Data
 {
     public enum Gender
     {
-        Male,
-        Female
+        Male = 0,
+        Female = 1
     }
 }
