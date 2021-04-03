@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-using EmployeeViewer.Data;
+using EmployeeViewer.Communication.EmployeeViewerService;
 
 namespace EmployeeViewer
 {

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Controls;
 
-using EmployeeViewer.Data;
+using EmployeeViewer.Communication.EmployeeViewerService;
 
 namespace EmployeeViewer.Controls
 {
@@ -34,7 +34,7 @@ namespace EmployeeViewer.Controls
             Genders = new List<Gender>(Enum.GetValues(typeof(Gender)).Cast<Gender>().ToList());
         }
 
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

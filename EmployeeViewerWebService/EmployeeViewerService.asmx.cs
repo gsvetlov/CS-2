@@ -20,8 +20,8 @@ namespace EmployeeViewerWebService
     // [System.Web.Script.Services.ScriptService]
     public class EmployeeViewerService : System.Web.Services.WebService
     {
-        private static string dbConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["employeeDb"].ConnectionString;
-        private IEntityProvider database = new SqlExpressDbProvider(dbConnectionString);
+        private static readonly string dbConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["employeeDb"].ConnectionString;
+        private readonly IEntityProvider database = new SqlExpressDbProvider(dbConnectionString);
 
         [WebMethod]
         public int AddEmployee(Employee employee) => database.Add(employee); // возвращает Id записи или -1, если запись не прошла

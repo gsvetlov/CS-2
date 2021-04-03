@@ -11,6 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeViewer", "EmployeeV
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeViewerWebService", "EmployeeViewerWebService\EmployeeViewerWebService.csproj", "{1AB4964E-E3D2-4574-AD1F-204249837782}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeViewer.Communication", "EmployeeViewer.Communication\EmployeeViewer.Communication.csproj", "{ECFD7442-A852-4756-8CE5-ECA4C95D8295}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1AB4964E-E3D2-4574-AD1F-204249837782} = {1AB4964E-E3D2-4574-AD1F-204249837782}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +38,10 @@ Global
 		{1AB4964E-E3D2-4574-AD1F-204249837782}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AB4964E-E3D2-4574-AD1F-204249837782}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1AB4964E-E3D2-4574-AD1F-204249837782}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECFD7442-A852-4756-8CE5-ECA4C95D8295}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECFD7442-A852-4756-8CE5-ECA4C95D8295}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECFD7442-A852-4756-8CE5-ECA4C95D8295}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECFD7442-A852-4756-8CE5-ECA4C95D8295}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

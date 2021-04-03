@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Diagnostics;
-using System.Linq;
-using System.Web;
 
 namespace EmployeeViewerWebService.DataProvider
 {
@@ -51,7 +47,7 @@ namespace EmployeeViewerWebService.DataProvider
             {
                 var result = sqlCommand.ExecuteNonQuery();
                 return result;
-            } 
+            }
             catch (Exception)
             {
                 Disconnect();
@@ -67,12 +63,13 @@ namespace EmployeeViewerWebService.DataProvider
             {
                 using (var reader = command.ExecuteReader())
                     return process(reader);
-            } catch (Exception)
+            }
+            catch (Exception)
             {
                 Disconnect();
                 throw;
             }
-            
+
         }
     }
 }
