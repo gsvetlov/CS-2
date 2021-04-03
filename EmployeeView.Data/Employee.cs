@@ -77,5 +77,7 @@ namespace EmployeeViewer.Data
         {
             return this.MemberwiseClone() as Employee;
         }
+
+        public override string ToString() => $"{Id}:{FirstName} {MiddleName} {LastName}:{Age}:{Department.Id}:{Department.Name}";
     }
 }

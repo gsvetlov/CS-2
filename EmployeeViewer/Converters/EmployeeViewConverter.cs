@@ -6,8 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-using EmployeeViewer.Data;
-
 namespace EmployeeViewer.Converters
 {
     public class EmployeeViewConverter : IValueConverter

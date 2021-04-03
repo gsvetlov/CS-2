@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows;
 
-using EmployeeViewer.Data;
+using EmployeeViewer.Communication.EmployeeViewerService;
 
 namespace EmployeeViewer
 {

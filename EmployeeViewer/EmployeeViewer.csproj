@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -78,10 +79,8 @@
     <Compile Include="CreateEmployee.xaml.cs">
       <DependentUpon>CreateEmployee.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataProvider\ConnectionProvider.cs" />
     <Compile Include="DataProvider\IDataProvider.cs" />
-    <Compile Include="DataProvider\InMemoryDatabase.cs" />
-    <Compile Include="DataProvider\SqlExpressDatabase.cs" />
+    <Compile Include="DataProvider\WebServiceProvider.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -114,9 +113,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EmployeeView.Data\EmployeeViewer.Data.csproj">
-      <Project>{f6e7371d-bb77-4572-b1b9-9744b5f9b168}</Project>
-      <Name>EmployeeViewer.Data</Name>
+    <ProjectReference Include="..\EmployeeViewer.Communication\EmployeeViewer.Communication.csproj">
+      <Project>{ecfd7442-a852-4756-8ce5-eca4c95d8295}</Project>
+      <Name>EmployeeViewer.Communication</Name>
     </ProjectReference>
     <ProjectReference Include="..\EmployeeViewer.Controls\EmployeeViewer.Controls.csproj">
       <Project>{5fe0f2fe-d202-4cbc-b6e7-b3bcc9a80c04}</Project>

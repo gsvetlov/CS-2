@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace EmployeeViewer.Data
+﻿namespace EmployeeViewer.Data
 {
     public abstract class Entity
     {
@@ -10,8 +8,8 @@ namespace EmployeeViewer.Data
             get => id;
             set
             {
-                if (id > 0) throw new InvalidOperationException("Id is already defined");
-                id = value > 0 ? value : throw new ArgumentOutOfRangeException("Invalid Id value");
+                if (id > 0) return; // throw new InvalidOperationException("Id is already defined");
+                id = value;
             }
         }
     }

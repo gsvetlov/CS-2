@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
-using EmployeeViewer.Data;
+using EmployeeViewer.Communication.EmployeeViewerService;
 using EmployeeViewer.DataProvider;
 
 namespace EmployeeViewer
@@ -19,7 +19,7 @@ namespace EmployeeViewer
         public MainWindow()
         {
             InitializeComponent();
-            database = new SqlExpressDatabase(ConnectionProvider.GetConnectionSting()); // для генерации данных create: true
+            database = new WebServiceProvider();
             this.DataContext = this;
             Employees = database.Employees;
             ctrEmployeeInfo.Departments = database.Departments;
@@ -30,7 +30,7 @@ namespace EmployeeViewer
             if (e.AddedItems.Count != 0)
             {
                 SelectedEmployee = e.AddedItems[0] as Employee;
-                ctrEmployeeInfo.Employee = SelectedEmployee.Copy();
+                ctrEmployeeInfo.Employee = SelectedEmployee.Clone();
             }
         }
 
