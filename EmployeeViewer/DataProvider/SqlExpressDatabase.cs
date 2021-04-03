@@ -134,8 +134,7 @@ namespace EmployeeViewer.DataProvider
                     var department = new Department()
                     {
                         Id = result.GetInt32(0),
-                        Name = result.GetString(1),
-                        Director = null
+                        Name = result.GetString(1)
                     };
                     Departments.Add(department);
                 }
